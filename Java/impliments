@@ -1,0 +1,66 @@
+interface Peri
+{
+  public void perimeter();
+   	
+}
+
+interface Area
+{
+   public void area();
+}
+
+class rect implements Peri,Area
+{
+   public void perimeter()
+   {
+     System.out.println("perimeter of rectangle");
+   }
+   
+   public void area()
+   {
+     System.out.println("area of rectangle");
+   }
+}
+
+class square implements Peri,Area
+{
+  public void perimeter()
+  {
+    System.out.println("primeter of square");
+  }
+  
+  public void area()
+  {
+    System.out.println("area of square");
+  }
+  
+}
+
+class circle implements Peri,Area
+{
+  public void perimeter()
+  {
+    System.out.println("perimeter of circle");
+  }
+  
+  public void area()
+  {
+    System.out.println("area of circle");
+  }
+}
+
+class impl
+{
+  public static void main(String args[])
+  {
+    circle c = new circle();
+    c.perimeter();
+    c.area();
+    square s = new square();
+    s.perimeter();
+    s.area();
+    rect r = new rect();
+    r.perimeter();
+    r.area();
+    }
+  }

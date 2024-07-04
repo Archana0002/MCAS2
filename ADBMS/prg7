@@ -1,0 +1,128 @@
+create table book(b_id int primary key,b_name varchar(20),b_author varchar(20),b_price int);
+
+Table created.
+
+SQL> desc book;
+ Name					   Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ B_ID					   NOT NULL NUMBER(38)
+ B_NAME 					    VARCHAR2(20)
+ B_AUTHOR					    VARCHAR2(20)
+ B_PRICE					    NUMBER(38)
+
+SQL> insert into book values(1,'One indian girl','Chetan bhagat',500);
+
+1 row created.
+
+SQL> insert into book values(2,'Revolution 2020','Chetan bhagat',400);
+
+1 row created.
+
+SQL> insert into book values(3,'ramayana','valmiki',2000);
+
+1 row created.
+
+
+
+
+SQL> insert into book values(4,'aadujeevitham','benyamin',1500);
+
+1 row created.
+
+SQL> insert into book values(5,'mathilukal','basheer',700);
+
+1 row created.
+
+SQL> select * from book;
+
+      B_ID B_NAME		B_AUTHOR		B_PRICE
+---------- -------------------- -------------------- ----------
+	 1 One indian girl	Chetan bhagat		    500
+	 2 Revolution 2020	Chetan bhagat		    400
+	 3 ramayana		valmiki 		   2000
+	 4 aadujeevitham	benyamin		   1500
+	 5 mathilukal		basheer 		    700
+
+SQL> commit;
+
+Commit complete.
+
+SQL> select * from book;
+
+      B_ID B_NAME		B_AUTHOR		B_PRICE
+---------- -------------------- -------------------- ----------
+	 1 One indian girl	Chetan bhagat		    500
+	 2 Revolution 2020	Chetan bhagat		    400
+	 3 ramayana		valmiki 		   2000
+	 4 aadujeevitham	benyamin		   1500
+	 5 mathilukal		basheer 		    700
+
+SQL> insert into book values(6,'alcheimist','paulo coelho',2500);
+
+1 row created.
+
+SQL> insert into book values(7,'randamoozham','M.T',300);
+
+1 row created.
+
+SQL> savepoint a;
+
+Savepoint created.
+
+SQL> insert into book values(8,'aarachar','k.r.meera',600);
+
+1 row created.
+
+
+SQL> insert into book values(9,'Bhagavad Gita','S. Radhakrishnan',3000);
+
+1 row created.
+
+SQL> select * from book;
+
+      B_ID B_NAME		B_AUTHOR		B_PRICE
+---------- -------------------- -------------------- ----------
+	 1 One indian girl	Chetan bhagat		    500
+	 2 Revolution 2020	Chetan bhagat		    400
+	 3 ramayana		valmiki 		   2000
+	 4 aadujeevitham	benyamin		   1500
+	 5 mathilukal		basheer 		    700
+	 6 alcheimist		paulo coelho		   2500
+	 7 randamoozham 	M.T			    300
+	 8 aarachar		k.r.meera		    600
+	 9 Bhagavad Gita	S. Radhakrishnan	   3000
+
+9 rows selected.
+
+SQL> rollback to a;
+
+Rollback complete.
+
+SQL> select * from book;
+
+      B_ID B_NAME		B_AUTHOR		B_PRICE
+---------- -------------------- -------------------- ----------
+	 1 One indian girl	Chetan bhagat		    500
+	 2 Revolution 2020	Chetan bhagat		    400
+	 3 ramayana		valmiki 		   2000
+	 4 aadujeevitham	benyamin		   1500
+	 5 mathilukal		basheer 		    700
+	 6 alcheimist		paulo coelho		   2500
+	 7 randamoozham 	M.T			    300
+
+7 rows selected.
+
+SQL> rollback;
+
+Rollback complete.
+
+
+SQL> select * from book;
+
+      B_ID B_NAME		B_AUTHOR		B_PRICE
+---------- -------------------- -------------------- ----------
+	 1 One indian girl	Chetan bhagat		    500
+	 2 Revolution 2020	Chetan bhagat		    400
+	 3 ramayana		valmiki 		   2000
+	 4 aadujeevitham	benyamin		   1500
+	 5 mathilukal		basheer 		    700

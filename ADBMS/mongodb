@@ -1,0 +1,40 @@
+//mongodb q1
+
+use employee;
+db.createCollections('employeeDetails');
+a)db.employeeDetails.insertMany([{}]);
+b)db.employeeDetails.find().pretty()
+c)db.employeeDetails.find( { empname : { $regex: /^s/i } } ).pretty();
+d) db.employeeDetails.update({empname : 'sita' } ,{$inc : { 'salary' : 1000}});
+e) db.employeeDetails.updateMany( { } , { $set : { "DOJ":ISODate("2024-05-09")} } );
+f)db.employeeDetails.aggregate([{$match : {"designation":"clerk" }},{$group: {_id:null , totalsalary : {$sum : "$salary" }}}]
+);
+g) db.employeeDetails.deleteOne({empid:106});
+h) db.createUser({ user:'mohan',pwd:"password", roles: [ { role:"readWrite", db: "employeeDetails"} ] } );
+
+
+//mongodb q2
+
+use student;
+db.createCollections('studentDetails');
+a) db.studentDetails.insertMany([{ "_id":2 , "rollno":102 , "name":"catherine" , "age":21 , "course":"mtech"},{ "_id":3 , "rollno":103 , "name":"denna" , "age":22 , "course":"btech"},{ "_id":4 , "rollno":104 , "name":"sam" , "age":25 , "course":"mca"},{ "_id":5 , "rollno":105 , "name":"karthick" , "age":24 , "course":"mca"},{ "_id":6 , "rollno":106 , "name":"aravind" , "age":20 , "course":"mca"}]);
+b) db.studentDetails.find().pretty();
+c)db.studentDetails.find({'name': { $regex : /^a/i } } ).pretty();
+d)db.studentDetails.updateOne({'rollno':106},{$set:{'course':'mca'}});
+e)db.studentDetails.updateMany({ },{ $set : { "DOJ" : ISODate("2024-07-02") } } );
+f) db.studentDetails.countDocuments({'course':'mca'});
+g)db.studentDetails.deleteOne({'rollno':104});
+
+
+//mongodb q3
+
+use vehicle
+db.createCollection('vehicleDetails');
+a)db.vehicleDetails.insertMany([{'regno':'BRG446','make':'ford','model':'meteor','year':2009,'colour':'white'},{'regno':'VRG655','make':'bmw','model':'coupe','year':2008,'colour':'blue'},{'regno':'NMT667','make':'madza','model':'delivery van','year':2010,'colour':'green'},{'regno':'CCT899','make':'toyota','model':'hiluxe','year':2009,'colour':'red'},{'regno':'FGR122','make':'mitsubishi','model':'magna','year':2007,'colour':'purple'}]);
+b) db.vehicleDetails.find().pretty();
+c)db.vehicleDetails.find({'make' : /^t/i }).pretty();
+d)db.vehicleDetails.find({'regno':'FGR122'});
+e) db.vehicleDetails.updateMany( { },{$set:{'EnNo':""}});
+f)db.vehicleDetails.countDocuments({'year':2009});
+g) db.vehicleDetails.deleteOne({'regno':'BRG446'});
+h)db.createUser({user:'ram',pwd:'password123',roles:[{role:'read',db:'vehicle'}]});

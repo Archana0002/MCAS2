@@ -1,0 +1,35 @@
+create table stud(id int,name varchar(20),mark number(3),grade varchar(6));
+
+Table created.
+
+SQL> insert into stud values(1,'anu',98,'A');
+
+1 row created.
+
+SQL> insert into stud values(&id,'&name',&mark,'&grade');
+Enter value for id: 2
+Enter value for name: abi
+Enter value for mark: 97
+Enter value for grade: A
+old   1: insert into stud values(&id,'&name',&mark,'&grade')
+new   1: insert into stud values(2,'abi',97,'A')
+
+1 row created.
+
+SQL> /
+Enter value for id: 3
+Enter value for name: aloo
+Enter value for mark: 76
+Enter value for grade: B
+old   1: insert into stud values(&id,'&name',&mark,'&grade')
+new   1: insert into stud values(3,'aloo',76,'B')
+
+1 row created.
+
+SQL> select * from stud;
+
+	ID NAME 		      MARK GRADE
+---------- -------------------- ---------- ------
+	 1 anu				98 A
+	 2 abi				97 A
+	 3 aloo 			76 B
