@@ -38,3 +38,11 @@ e) db.vehicleDetails.updateMany( { },{$set:{'EnNo':""}});
 f)db.vehicleDetails.countDocuments({'year':2009});
 g) db.vehicleDetails.deleteOne({'regno':'BRG446'});
 h)db.createUser({user:'ram',pwd:'password123',roles:[{role:'read',db:'vehicle'}]});
+
+//mongodb q4
+a) db.booksdet.insertMany([{"no":1,"title":"ds","author":"lipschute","subject":"ds","publisher":"mcgraw","quantity":4,"price":217.00},{"no":2,"title":"dos guide","author":"nortron","subject":"os","publisher":"phi","quantity":3,"price":175.00},{"no":3,"title":"turbo c++","author":"robort lafore","subject":"prog","publisher":"galgotia","quantity":5,"price":270.00},{"no":4,"title":"dbase dummies","author":"palmer","subject":"dbms","publisher":"pustakm","quantity":7,"price":130.00},{"no":5,"title":"mastering windows","author":"cowart","subject":"os","publisher":"bpb","quantity":1,"price":225.00}]);
+b) db.booksdet.find().pretty();
+c)db.booksdet.updateOne({"no":2},{$set:{"author":"david"}});
+d)db.booksdet.aggregate([{$group:{_id:null,totalquantity:{$sum:"$quantity"}}}]);
+e)db.booksdet.deleteOne({"no":4});
+f)db.createUser({user:"ram",pwd:"passwd",roles:[{role:"read",db:"books"}]});
