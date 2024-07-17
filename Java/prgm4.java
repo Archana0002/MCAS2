@@ -56,7 +56,7 @@ public class Main {
         {
             for(int j=0;j<col;j++)
             {
-                System.out.println(m3[i][j]);
+                System.out.print(m3[i][j]+"\t");
             }
            System.out.println();
         }
